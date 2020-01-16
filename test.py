@@ -1,5 +1,8 @@
-import datetime
+
 '''
+
+import datetime
+
 timestamp = 1463460958000
 
 datetimeobj = datetime.datetime.fromtimestamp(timestamp / 1000)
@@ -8,7 +11,7 @@ a = str(datetimeobj)
 
 print(a)
 print(a[0:10])
-'''
+
 
 start = '2019-12-13T17:45:00'
 
@@ -24,6 +27,6 @@ b = datetime.datetime.strptime(a, "%Y-%m-%d %H:%M:%S")
 print(b)
 print(b.timestamp())
 
-
+'''
 
 
