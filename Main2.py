@@ -17,6 +17,9 @@ End_Day = ('%s%s%s' % (now.year, now.month, now.day))
 #End_Day = ('%s-%s-%s' % (now.year, now.month, now.day))
 #Today = ("%s%s%s", % (now.year, now.month, now.day))
 
+
+
+
 '''
 print(stock.get_market_ticker_list()[15])
 a = stock.get_market_ticker_list()
@@ -50,8 +53,8 @@ bugList = []
 epoch = 0
 
 for ticker in stock.get_market_ticker_list():
-	time.sleep(2)
-	df = stock.get_market_ohlcv_by_date("20180810", "20181212", ticker)
+	time.sleep(1)
+	df = stock.get_market_ohlcv_by_date("20000101", "20200116", ticker)
 	try:
 		if float(max(df['종가'])) == float(df['종가'].tail(1)):
 			Result.append(stock.get_market_ticker_name(stock))
