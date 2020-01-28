@@ -60,6 +60,7 @@ for i in range(len(tickers)):
         print("")
     if i % 5 == 0:
         print(i)
+ddddddddddd
 
 df = data.DataReader("005930.KS", 'yahoo', Start_Day, End_Day)
 
