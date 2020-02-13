@@ -3,11 +3,17 @@
 from datetime import datetime
 from pykrx import stock
 import time
-import telegram
+#import telegram
 
 
-my_token = "888909254:AAFhueNYmy65PCZrn0EI5OQA4vFq6Fk5MfI"
-bot = telegram.Bot(token = my_token)
+#my_token = "888909254:AAFhueNYmy65PCZrn0EI5OQA4vFq6Fk5MfI"
+#bot = telegram.Bot(token = my_token)
+
+
+konex = []
+tickers = list(set(stock.get_market_ticker_list()) - set(konex))
+
+
 Result = []
 bugList = []
 now = datetime.now()
@@ -16,7 +22,8 @@ if len(Today) != 8:
     Today = str(Today[0:4]) + '0' + str(Today[4:7])
 while(True):
     #epoch = 0
-    for ticker in stock.get_market_ticker_list():
+    #for ticker in stock.get_market_ticker_list():
+    for ticker in tickers:
         time.sleep(1.5)
         df = stock.get_market_ohlcv_by_date("20000101", Today, ticker)
         try:
@@ -27,15 +34,18 @@ while(True):
             bugList.append(ticker)
         #print(epoch)
         #epoch = epoch + 1
-    bot.send_message(chat_id = 801167350, text = str(bugList))
-    bot.send_message(chat_id = 801167350, text = str(Result))
+    #bot.send_message(chat_id = 801167350, text = str(bugList))
+    #bot.send_message(chat_id = 801167350, text = str(Result))
+    print(Result)
+
+    '''
     while(true):
         reset_time = ('%s' % (now.hour))
         if reset_time == 18:
             break
         else:
             time.sleep(1500)
-
+'''
 #습작-------------------------------------------------------------------
 
 '''
