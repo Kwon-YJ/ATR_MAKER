@@ -28,7 +28,7 @@ while(True):
         df = stock.get_market_ohlcv_by_date("20000101", Today, ticker)
         try:
             if float(max(df['종가'])) == float(df['종가'].tail(1)):
-                Result.append(ticker)
+                #Result.append(ticker)
                 Result.append(stock.get_market_ticker_name(ticker))
         except:
             bugList.append(ticker)
@@ -36,6 +36,9 @@ while(True):
         #epoch = epoch + 1
     #bot.send_message(chat_id = 801167350, text = str(bugList))
     #bot.send_message(chat_id = 801167350, text = str(Result))
+    matching = [s for s in Result if "스팩" in s]
+    print(list(set(Result) - set(matching)))    
+
     print(Result)
 
     '''
