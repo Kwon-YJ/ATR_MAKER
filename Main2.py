@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*- 
 #from pandas_datareader import data
 from datetime import datetime
 from pykrx import stock
 import time
 import telegram
+
 
 my_token = "888909254:AAFhueNYmy65PCZrn0EI5OQA4vFq6Fk5MfI"
 bot = telegram.Bot(token = my_token)
