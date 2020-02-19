@@ -37,7 +37,7 @@ while(True):
     bot.send_message(chat_id = 801167350, text = str(list(set(Result) - set(matching))))
     while(true):
         reset_time = ('%s' % (now.hour))
-        if reset_time == 18:
+        if reset_time == '18':
             break
         else:
             time.sleep(1500)
