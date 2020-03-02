@@ -35,7 +35,7 @@ while(True):
     matching = [s for s in Result if "스팩" in s]
     #print(list(set(Result) - set(matching)))
     bot.send_message(chat_id = 801167350, text = str(list(set(Result) - set(matching))))
-    while(true):
+    while(True):
         reset_time = ('%s' % (now.hour))
         if reset_time == '18':
             break
