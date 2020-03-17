@@ -55,7 +55,7 @@ while(True):
     bot.send_message(chat_id = 801167350, text = str(list(set(Result) - set(matching))))
     while(True):
         reset_time = get_time(datetime.datetime.now())[1]
-        if reset_time[:2] == '10'
+        if reset_time[:2] == '10':
             break
         else:
             time.sleep(1500)
