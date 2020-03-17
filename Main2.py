@@ -5,6 +5,24 @@ from pykrx import stock
 import time
 import telegram
 
+def get_time(temp):
+    now = temp
+    YYYY = str(now.year)
+    MM = str(now.month)
+    DD = str(now.day)
+    hh = str(now.hour)
+    mm = str(now.minute)
+
+    if len(MM) != 2:
+        MM = '0' + MM
+    if len(DD) != 2:
+        DD = '0' + DD
+    if len(hh) != 2:
+        hh = '0' + hh
+    if len(mm) != 2:
+        mm = '0' + mm
+
+    return YYYY+MM+DD, hh+mm
 
 my_token = "888909254:AAFhueNYmy65PCZrn0EI5OQA4vFq6Fk5MfI"
 bot = telegram.Bot(token = my_token)
@@ -36,8 +54,8 @@ while(True):
     #print(list(set(Result) - set(matching)))
     bot.send_message(chat_id = 801167350, text = str(list(set(Result) - set(matching))))
     while(True):
-        reset_time = ('%s' % (now.hour))
-        if reset_time == '18':
+        reset_time = get_time(datetime.datetime.now())[1]
+        if reset_time[:2] == '10'
             break
         else:
             time.sleep(1500)
