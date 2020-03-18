@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*- 
 #from pandas_datareader import data
-from datetime import datetime
 from pykrx import stock
 import time
 import telegram
@@ -34,11 +33,13 @@ tickers = list(set(stock.get_market_ticker_list()) - set(konex))
 
 Result = []
 bugList = []
-now = datetime.now()
-Today = ('%s%s%s' % (now.year, now.month, now.day))
-if len(Today) != 8:
-    Today = str(Today[0:4]) + '0' + str(Today[4:7])
+
 while(True):
+	from datetime import datetime
+	now = datetime.now()
+	Today = ('%s%s%s' % (now.year, now.month, now.day))
+	if len(Today) != 8:
+	    Today = str(Today[0:4]) + '0' + str(Today[4:7])
     for ticker in tickers:
         time.sleep(1.5)
         df = stock.get_market_ohlcv_by_date("20000101", Today, ticker)
@@ -53,6 +54,7 @@ while(True):
     matching = [s for s in Result if "스팩" in s]
     #print(list(set(Result) - set(matching)))
     bot.send_message(chat_id = 801167350, text = str(list(set(Result) - set(matching))))
+    import datetime
     while(True):
         reset_time = get_time(datetime.datetime.now())[1]
         if reset_time[:2] == '10':
